@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import logo from '../logo.svg';
-import './App.css';
-import MyTestComponent from './MyTestComponent';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {green100,green500,green700} from 'material-ui/styles/colors';
+import React, { Component } from 'react'
+import './App.css'
+import MyTestComponent from './MyTestComponent'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import {green100,green500,green700} from 'material-ui/styles/colors'
 
 const myMuiTheme = getMuiTheme({
       pallete :{
@@ -28,7 +27,7 @@ class App extends Component {
       <MuiThemeProvider muiTheme={myMuiTheme}>
         <MyTestComponent />
       </MuiThemeProvider>
-    );
+    )
     /*
     return (
       <div className="App">
@@ -45,4 +44,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
