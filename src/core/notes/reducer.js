@@ -13,7 +13,7 @@ export default function notesReducer(state=initialState,action){
                 action.payload
             ]
         case 'REMOVE_NOTE':
-            return state.filter(note=> note.id != action.payload.id)
+            return state.filter(note=> note.id !== action.payload.id)
         default:
             return state
     }

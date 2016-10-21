@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import './App.css'
-import MyTestComponent from './MyTestComponent'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import {green100,green500,green700} from 'material-ui/styles/colors'
 
+import HeaderBar from '../components/header-bar'
+
 const myMuiTheme = getMuiTheme({
-      pallete :{
+      palette :{
         primary1Color : green500,
         primary2Color : green700,
-        primary3Color : green100
+        primary3Color : green100,
       }
     },
     {
       avatar: {
-        borderColor: null,
+        borderColor: null
       }
     }
 );
@@ -22,10 +23,12 @@ const myMuiTheme = getMuiTheme({
 class App extends Component {
   
   render() {
-    
+    console.log(this.props.notes)
     return(
       <MuiThemeProvider muiTheme={myMuiTheme}>
-        <MyTestComponent />
+        <div>
+          <HeaderBar />          
+        </div>
       </MuiThemeProvider>
     )
     /*

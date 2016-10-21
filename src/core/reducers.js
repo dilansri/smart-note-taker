@@ -1,8 +1,8 @@
-import { combineReducer } from 'redux'
-import { notesReducer } from './notes'
+import { combineReducers } from 'redux'
+import  notesReducer from './notes/reducer'
 
 
-let reducer = combineReducer({
+let reducer = combineReducers({
     notes:notesReducer
 })
 
