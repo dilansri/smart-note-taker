@@ -6,7 +6,7 @@ const NoteText = function(props){
     if(props.isEditing){
         return (
             <CardText>
-                <TextField value={props.note} />
+                <TextField hintText="note" id={props.id} onChange={props.handleTextChange} value={props.note} />
             </CardText>
         )
     }

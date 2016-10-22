@@ -6,16 +6,16 @@ class NoteActions extends Component{
     render(){
         if(!this.props.isEditing){
             return(
-                    <CardActions>
-                        <FlatButton onClick={this.props.handleEditClick} label="Edit" />
-                        <FlatButton label="Delete" />
-                    </CardActions>
+                <CardActions>
+                    <FlatButton onClick={this.props.handleEditClick} label="Edit" />
+                    <FlatButton onClick={this.props.handleDeleteNote} label="Delete" />
+                </CardActions>
                 )
         }
         return(
             <CardActions>
                 <FlatButton onClick={this.props.handleSaveClick} label="Save" />
-                <FlatButton label="Delete" />
+                <FlatButton onClick={this.props.handleDeleteNote} label="Delete" />
             </CardActions>
         )
 

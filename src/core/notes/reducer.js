@@ -12,8 +12,13 @@ export default function notesReducer(state=initialState,action){
                 ...state,
                 action.payload
             ]
-        case 'REMOVE_NOTE':
+        case 'DELETE_NOTE':
             return state.filter(note=> note.id !== action.payload.id)
+        case 'UPDATE_NOTE':
+            return [
+                {id:action.payload.id,note:action.payload.note},
+                ...state.filter(note=> note.id !== action.payload.id )
+            ]
         default:
             return state
     }

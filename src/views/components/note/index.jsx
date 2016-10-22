@@ -7,10 +7,12 @@ class Note extends Component{
 
     constructor(props){
         super(props) 
-        this.state ={isEditing : false} 
+        this.state ={isEditing : false,text:this.props.note.note} 
 
         this.handleEditClick = this.handleEditClick.bind(this) 
         this.handleSaveClick = this.handleSaveClick.bind(this)
+        this.handleTextChange = this.handleTextChange.bind(this)
+        this.handleDeleteNote = this.handleDeleteNote.bind(this)
     }
 
     handleEditClick(){
@@ -20,19 +22,34 @@ class Note extends Component{
     }
 
     handleSaveClick(){
+        this.props.updateNote({id:this.props.note.id,note:this.state.text})
         this.setState({
             isEditing : false
         })
+    }
+
+    handleTextChange(event){        
+        this.setState({
+            text:event.target.value
+        })
+    }
+
+    handleDeleteNote(){
+        this.props.deleteNote({id:this.props.note.id})
     }
 
     render(){
         return(
             <Card>
                 <CardHeader />
-                <NoteText isEditing={this.state.isEditing} note={this.props.note.note}/>
+                <NoteText isEditing={this.state.isEditing} 
+                          note={this.state.text}
+                          handleTextChange={this.handleTextChange} />
+
                 <NoteActions isEditing={this.state.isEditing} 
                              handleEditClick={this.handleEditClick}
-                             handleSaveClick={this.handleSaveClick} />                
+                             handleSaveClick={this.handleSaveClick}
+                             handleDeleteNote={this.handleDeleteNote}/>                
             </Card>
         )
     }

@@ -22,13 +22,35 @@ const myMuiTheme = getMuiTheme({
 );
 
 class App extends Component {
+  //TODO Handle state with componentDidMount
+
+  constructor(props){
+    super(props)
+
+    this.updateNote = this.updateNote.bind(this)
+    this.deleteNote = this.deleteNote.bind(this)
+  }
+
+  updateNote(payload){
+    this.props.dispatch({type:'UPDATE_NOTE',payload:payload})
+  }
+
+  deleteNote(payload){
+    this.props.dispatch({type:'DELETE_NOTE',payload:payload})
+  }
   
   render() {
     console.log(this.props.notes)
 
     var notesList = (
       <div>
-        {this.props.notes.map(note=> ( <Note key={note.id} note={note}/>))}
+        {this.props.notes.map(note=> ( 
+          <Note key={note.id} 
+                id={note.id}
+                note={note}
+                updateNote={this.updateNote}
+                deleteNote={this.deleteNote}/>
+          ))}
       </div>
     )
     return(
