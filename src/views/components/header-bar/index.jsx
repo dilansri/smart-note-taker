@@ -23,10 +23,9 @@ const HeaderBar = () => (
     <AppBar
         title={<span style={styles.title}>Smart Note Taker</span>}
         onTitleTouchTap={handleTouchTap}
-        iconElementLeft={<IconButton><NavigationClose /></IconButton>}
         iconElementRight={<FlatButton label="Save" />}
     />
-    <FloatingActionButton style={{marginLeft:20,marginTop:20}}>
+    <FloatingActionButton backgroundColor="#E53935" style={{position:'fixed',top:'75px',left:'10px',zDepth:3}}>
         <ContentAdd />
     </FloatingActionButton>
   </div>
