@@ -25,7 +25,7 @@ const HeaderBar = () => (
         onTitleTouchTap={handleTouchTap}
         iconElementRight={<FlatButton label="Save" />}
     />
-    <FloatingActionButton backgroundColor="#E53935" style={{position:'fixed',top:'75px',left:'10px',zDepth:3}}>
+    <FloatingActionButton backgroundColor="#E53935" style={{position:'absolute',top:'50px',left:'10px',zDepth:3,zIndex:5555}}>
         <ContentAdd />
     </FloatingActionButton>
   </div>

@@ -3,6 +3,7 @@ import './App.css'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import {green100,green700,green500} from 'material-ui/styles/colors'
+import Note from '../components/note'
 
 import HeaderBar from '../components/header-bar'
 
@@ -26,9 +27,9 @@ class App extends Component {
     console.log(this.props.notes)
 
     var notesList = (
-      <ul>
-        {this.props.notes.map(note=> ( <li key={note.id}>{note.note}</li>))}
-      </ul>
+      <div>
+        {this.props.notes.map(note=> ( <Note key={note.id} note={note}/>))}
+      </div>
     )
     return(
       <MuiThemeProvider muiTheme={myMuiTheme}>
