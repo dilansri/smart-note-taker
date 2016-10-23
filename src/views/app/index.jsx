@@ -5,6 +5,9 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import {green100,green700,green500} from 'material-ui/styles/colors'
 import Notes from '../containers/notes'
 
+import { startLogin } from '../../core/actions'
+import firebase from '../../core/firebase'
+
 
 import HeaderBar from '../components/header-bar'
 
@@ -23,15 +26,13 @@ const myMuiTheme = getMuiTheme({
 );
 
 class App extends Component {
-  //TODO Handle state with componentDidMount
-
   constructor(props){
     super(props)
   }
   
   render() {
     console.log(this.props.notes)
-    
+    //if(!firebase.auth().currentUser) this.props.dispatch(startLogin())    
     return(
       <MuiThemeProvider muiTheme={myMuiTheme}>
         <div>
