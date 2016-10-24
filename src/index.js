@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import routes from './core/router'
 import firebase from './core/firebase'
 import { hashHistory } from 'react-router'
+import { startGetNotes,login,logout } from './core/actions'
 let store = createStore(reducers,applyMiddleware(thunk))
 
 firebase.auth().onAuthStateChanged((user)=>{
@@ -15,7 +16,10 @@ firebase.auth().onAuthStateChanged((user)=>{
   console.log(user)
   if(user){
     hashHistory.push('/notes')
+    store.dispatch(login({uid:user.uid}))
+    store.dispatch(startGetNotes())
   }else{
+    store.dispatch(logout())
     hashHistory.push('/')
   }
 })
