@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ Component } from 'react'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import NavigationClose from 'material-ui/svg-icons/navigation/close'
@@ -17,19 +17,30 @@ const styles = {
     },
 }
 
+class HeaderBar extends Component{
+    constructor(props){
+        super(props)
+        this.handleLogout = this.handleLogout.bind(this)
+    }
 
-const HeaderBar = () => (
-  <div>
-    <AppBar
-        title={<span style={styles.title}>Smart Note Taker</span>}
-        onTitleTouchTap={handleTouchTap}
-        iconElementRight={<FlatButton label="Save" />}
-    />
-    <FloatingActionButton backgroundColor="#E53935" style={{position:'absolute',top:'50px',left:'10px',zDepth:3,zIndex:5555}}>
-        <ContentAdd />
-    </FloatingActionButton>
-  </div>
-)
+    handleLogout(){
+        this.props.handleLogout()
+    }
+    render(){
+        return(
+            <div>
+                <AppBar
+                    title={<span style={styles.title}>Smart Note Taker</span>}
+                    onTitleTouchTap={handleTouchTap}
+                    iconElementRight={<FlatButton onClick={this.handleLogout} label="Logout" />}
+                />
+                <FloatingActionButton backgroundColor="#E53935" style={{position:'absolute',top:'50px',left:'10px',zDepth:3,zIndex:5555}}>
+                    <ContentAdd />
+                </FloatingActionButton>
+            </div>
+        )
+    }
+}
 
 
 export default HeaderBar;

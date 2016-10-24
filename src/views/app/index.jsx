@@ -9,7 +9,7 @@ import { startLogin } from '../../core/actions'
 import firebase from '../../core/firebase'
 
 
-import HeaderBar from '../components/header-bar'
+import HeaderBar from '../containers/header-bar'
 
 const myMuiTheme = getMuiTheme({
       palette :{
@@ -31,7 +31,7 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.props.notes)
+    //console.log(this.props.notes)
     //if(!firebase.auth().currentUser) this.props.dispatch(startLogin())    
     return(
       <MuiThemeProvider muiTheme={myMuiTheme}>

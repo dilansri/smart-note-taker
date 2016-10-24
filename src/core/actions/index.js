@@ -31,3 +31,11 @@ export const startLogin = () =>{
         })
     }
 }
+
+export const startLogout = () => {
+    return (dispatch,getState) => {
+        return firebase.auth().signOut().then(()=>{
+            console.log('successfully signed out')
+        })
+    }
+}

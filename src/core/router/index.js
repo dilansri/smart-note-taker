@@ -2,10 +2,11 @@ import React from 'react'
 import { Route, Router, IndexRoute, hashHistory} from 'react-router'
 import firebase from '../firebase'
 import App from '../../views/app-container'
-import Login from '../../views/login'
+import Login from '../../views/containers/login'
 
 const requireLogin = (nextState,replace,next) => {
-    if(!firebase.auth.currentUser){
+    console.log('require login middleware invokes')
+    if(!firebase.auth().currentUser){
         replace('/')
     }
     next()
@@ -14,7 +15,8 @@ const requireLogin = (nextState,replace,next) => {
 
 
 const handleIfLoggedIn = (nextState,replace,next) => {
-    if(firebase.auth.currentUser){
+    console.log('index route middleware invokes')
+    if(firebase.auth().currentUser){
         replace('/notes')
     }
     next()
