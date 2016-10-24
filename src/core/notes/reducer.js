@@ -1,9 +1,4 @@
-let initialState = [
-    {id:1,note:'sample note 1'},
-    {id:2,note:'sample note 2'},
-    {id:3,note:'sample note 3'},
-    {id:4,note:'sample note 4'}
-]
+let initialState = []
 
 export default function notesReducer(state=initialState,action){
     switch(action.type){

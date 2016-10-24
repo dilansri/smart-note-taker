@@ -34,9 +34,6 @@ class HeaderBar extends Component{
                     onTitleTouchTap={handleTouchTap}
                     iconElementRight={<FlatButton onClick={this.handleLogout} label="Logout" />}
                 />
-                <FloatingActionButton backgroundColor="#E53935" style={{position:'absolute',top:'50px',left:'10px',zDepth:3,zIndex:5555}}>
-                    <ContentAdd />
-                </FloatingActionButton>
             </div>
         )
     }

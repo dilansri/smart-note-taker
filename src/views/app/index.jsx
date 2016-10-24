@@ -10,7 +10,7 @@ import firebase from '../../core/firebase'
 
 
 import HeaderBar from '../containers/header-bar'
-
+import NewNoteDialog from '../containers/new-note'
 const myMuiTheme = getMuiTheme({
       palette :{
         primary1Color : green500,
@@ -36,7 +36,8 @@ class App extends Component {
     return(
       <MuiThemeProvider muiTheme={myMuiTheme}>
         <div>
-          <HeaderBar />    
+          <HeaderBar />  
+          <NewNoteDialog />  
           <Notes />    
         </div>
       </MuiThemeProvider>
