@@ -2,11 +2,11 @@ import firebase from 'firebase'
 
 try{
     var config = {
-    apiKey: "AIzaSyDsfohPrXMYf5zuKgU8BugSjJAn8N1VPXQ",
+    apiKey: "",
     authDomain: "smart-note-taker.firebaseapp.com",
     databaseURL: "https://smart-note-taker.firebaseio.com",
     storageBucket: "smart-note-taker.appspot.com",
-    messagingSenderId: "238871951768"
+    messagingSenderId: ""
   };
   firebase.initializeApp(config);
 }catch(e){
