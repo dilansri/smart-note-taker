@@ -6,21 +6,27 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 class Login extends Component{
     constructor(props){
         super(props)
-        this.handleLogin = this.handleLogin.bind(this)
+        this.handleLoginGitHub = this.handleLoginGitHub.bind(this)
+        this.handleLoginGoogle = this.handleLoginGoogle.bind(this)
     }
 
-    handleLogin(provider){
-        this.props.providerLogin(provider)
+    handleLoginGitHub(){
+        this.props.providerLogin('github')
+    }
+
+    handleLoginGoogle(){
+        this.props.providerLogin('google')        
     }
 
     render(){
         return (
             <MuiThemeProvider>
-                <div style={{width:300,position:'relative',top:'50%',margin:'auto'}}>
-                    <TextField type="email" hintText="email"/><br />
-                    <TextField type="password" hintText="password"/><br />
+                <div style={{width:450,position:'relative',top:'50%',margin:'auto'}}>
+                    <TextField fullWidth={true} type="email" hintText="email"/><br />
+                    <TextField fullWidth={true} type="password" hintText="password"/><br />
                     <RaisedButton label="Login" primary={true} />
-                    <RaisedButton onClick={this.handleLogin} label="Login with GitHub" />
+                    <RaisedButton onClick={this.handleLoginGitHub} label="Login with GitHub" />
+                    <RaisedButton onClick={this.handleLoginGoogle} label="Login with Google" />
                 </div>
             </MuiThemeProvider>
         )

@@ -6,7 +6,7 @@ import { startLogin } from '../../../core/actions'
 const mapDispatchToProps = function(dispatch){
     return {
         providerLogin : (provider) => {
-            dispatch(startLogin())
+            dispatch(startLogin(provider))
         }
     }
 }

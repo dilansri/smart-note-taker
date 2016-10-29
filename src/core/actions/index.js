@@ -1,4 +1,4 @@
-import firebase,{ firebaseRef,githubProvider } from '../firebase'
+import firebase,{ firebaseRef,githubProvider,googleAuthProvider } from '../firebase'
 
 export const addNote = (payload) => {
     return {
@@ -72,9 +72,22 @@ export const logout = (payload) => {
 }
 
 
-export const startLogin = () =>{
+export const startLogin = (provider) =>{
     return (dispatch,getState) => {
-        return firebase.auth().signInWithPopup(githubProvider).then((result) => {
+        var loginInProvider
+
+        switch(provider){
+            case 'github':
+                loginInProvider = githubProvider
+                break
+            case 'google':
+                loginInProvider = googleAuthProvider
+                break
+            default :
+                loginInProvider = googleAuthProvider
+        }
+        
+        return firebase.auth().signInWithPopup(loginInProvider).then((result) => {
             console.log("auth worked",result)
         },(error) => {
             console.log("auth error")
